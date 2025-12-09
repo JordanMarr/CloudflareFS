@@ -1,0 +1,113 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    This is a Fable-specific project file that consolidates all CloudflareFS
+    source files into a single compilation unit for JavaScript generation.
+
+    This file is NOT used for .NET compilation - each sub-project has its own .fsproj.
+    This exists purely for Fable to know how to compile the sources to JavaScript.
+  -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Core -->
+    <Compile Include="Core/CloudFlare.Core/Library.fs" />
+
+    <!-- Runtime: Worker.Context (base types for other runtime libs) -->
+    <Compile Include="Runtime/CloudFlare.Worker.Context/Types.fs" />
+    <Compile Include="Runtime/CloudFlare.Worker.Context/Helpers.fs" />
+
+    <!-- Runtime: AI -->
+    <Compile Include="Runtime/CloudFlare.AI/Generated.fs" />
+    <Compile Include="Runtime/CloudFlare.AI/Library.fs" />
+    <Compile Include="Runtime/CloudFlare.AI/Extensions.fs" />
+
+    <!-- Runtime: D1 -->
+    <Compile Include="Runtime/CloudFlare.D1/Types.fs" />
+    <Compile Include="Runtime/CloudFlare.D1/Helpers.fs" />
+
+    <!-- Runtime: DurableObjects -->
+    <Compile Include="Runtime/CloudFlare.DurableObjects/Types.fs" />
+    <Compile Include="Runtime/CloudFlare.DurableObjects/Helpers.fs" />
+
+    <!-- Runtime: Hyperdrive -->
+    <Compile Include="Runtime/CloudFlare.Hyperdrive/Types.fs" />
+    <Compile Include="Runtime/CloudFlare.Hyperdrive/Helpers.fs" />
+
+    <!-- Runtime: KV -->
+    <Compile Include="Runtime/CloudFlare.KV/Types.fs" />
+    <Compile Include="Runtime/CloudFlare.KV/Helpers.fs" />
+
+    <!-- Runtime: Queues -->
+    <Compile Include="Runtime/CloudFlare.Queues/Types.fs" />
+    <Compile Include="Runtime/CloudFlare.Queues/Helpers.fs" />
+
+    <!-- Runtime: R2 -->
+    <Compile Include="Runtime/CloudFlare.R2/Types.fs" />
+    <Compile Include="Runtime/CloudFlare.R2/Helpers.fs" />
+
+    <!-- Runtime: Vectorize -->
+    <Compile Include="Runtime/CloudFlare.Vectorize/Types.fs" />
+    <Compile Include="Runtime/CloudFlare.Vectorize/Helpers.fs" />
+
+    <!-- Management: Analytics -->
+    <Compile Include="Management/CloudFlare.Management.Analytics/StringEnum.fs" />
+    <Compile Include="Management/CloudFlare.Management.Analytics/Types.fs" />
+    <Compile Include="Management/CloudFlare.Management.Analytics/OpenApiHttp.fs" />
+    <Compile Include="Management/CloudFlare.Management.Analytics/Client.fs" />
+
+    <!-- Management: D1 -->
+    <Compile Include="Management/CloudFlare.Management.D1/StringEnum.fs" />
+    <Compile Include="Management/CloudFlare.Management.D1/Types.fs" />
+    <Compile Include="Management/CloudFlare.Management.D1/OpenApiHttp.fs" />
+    <Compile Include="Management/CloudFlare.Management.D1/Client.fs" />
+
+    <!-- Management: DurableObjects -->
+    <Compile Include="Management/CloudFlare.Management.DurableObjects/StringEnum.fs" />
+    <Compile Include="Management/CloudFlare.Management.DurableObjects/Types.fs" />
+    <Compile Include="Management/CloudFlare.Management.DurableObjects/OpenApiHttp.fs" />
+    <Compile Include="Management/CloudFlare.Management.DurableObjects/Client.fs" />
+
+    <!-- Management: Hyperdrive -->
+    <Compile Include="Management/CloudFlare.Management.Hyperdrive/StringEnum.fs" />
+    <Compile Include="Management/CloudFlare.Management.Hyperdrive/Types.fs" />
+    <Compile Include="Management/CloudFlare.Management.Hyperdrive/OpenApiHttp.fs" />
+    <Compile Include="Management/CloudFlare.Management.Hyperdrive/Client.fs" />
+
+    <!-- Management: Pages -->
+    <Compile Include="Management/CloudFlare.Management.Pages/StringEnum.fs" />
+    <Compile Include="Management/CloudFlare.Management.Pages/Types.fs" />
+    <Compile Include="Management/CloudFlare.Management.Pages/OpenApiHttp.fs" />
+    <Compile Include="Management/CloudFlare.Management.Pages/Client.fs" />
+
+    <!-- Management: Queues -->
+    <Compile Include="Management/CloudFlare.Management.Queues/StringEnum.fs" />
+    <Compile Include="Management/CloudFlare.Management.Queues/Types.fs" />
+    <Compile Include="Management/CloudFlare.Management.Queues/OpenApiHttp.fs" />
+    <Compile Include="Management/CloudFlare.Management.Queues/Client.fs" />
+
+    <!-- Management: R2 -->
+    <Compile Include="Management/CloudFlare.Management.R2/StringEnum.fs" />
+    <Compile Include="Management/CloudFlare.Management.R2/Types.fs" />
+    <Compile Include="Management/CloudFlare.Management.R2/OpenApiHttp.fs" />
+    <Compile Include="Management/CloudFlare.Management.R2/Client.fs" />
+
+    <!-- Management: Vectorize -->
+    <Compile Include="Management/CloudFlare.Management.Vectorize/StringEnum.fs" />
+    <Compile Include="Management/CloudFlare.Management.Vectorize/Types.fs" />
+    <Compile Include="Management/CloudFlare.Management.Vectorize/OpenApiHttp.fs" />
+    <Compile Include="Management/CloudFlare.Management.Vectorize/Client.fs" />
+
+    <!-- Management: Workers -->
+    <Compile Include="Management/CloudFlare.Management.Workers/StringEnum.fs" />
+    <Compile Include="Management/CloudFlare.Management.Workers/Types.fs" />
+    <Compile Include="Management/CloudFlare.Management.Workers/OpenApiHttp.fs" />
+    <Compile Include="Management/CloudFlare.Management.Workers/Client.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Fable.Core" Version="4.3.0" />
+    <PackageReference Include="Fable.Promise" Version="3.2.0" />
+  </ItemGroup>
+</Project>
