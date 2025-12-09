@@ -22,15 +22,16 @@
     <IsPackable>true</IsPackable>
   </PropertyGroup>
 
-  <!-- Package Dependencies -->
+  <!-- Package Dependencies (these will be transitive dependencies for consumers) -->
   <ItemGroup>
-    <PackageReference Include="Fable.Core" Version="4.3.0" PrivateAssets="all" />
-    <PackageReference Include="Fable.Promise" Version="3.2.0" PrivateAssets="all" />
+    <PackageReference Include="Fable.Core" Version="4.3.0" />
+    <PackageReference Include="Fable.Promise" Version="3.2.0" />
   </ItemGroup>
 
-  <!-- README -->
+  <!-- README and nuspec -->
   <ItemGroup>
     <None Include="..\README.md" Pack="true" PackagePath="" />
+    <None Include="CloudflareFS.nuspec" Pack="true" PackagePath="" />
   </ItemGroup>
 
   <!-- Core: DLLs and XML docs -->
@@ -76,7 +77,7 @@
 
   <!-- Fable: consolidated project file for Fable compilation -->
   <ItemGroup>
-    <None Include="CloudflareFS.fableproj" Pack="true" PackagePath="fable" />
+    <None Include="CloudflareFS.fsproj" Pack="true" PackagePath="fable" />
   </ItemGroup>
 
   <!-- Fable sources: Core -->
@@ -97,17 +98,9 @@
     <None Include="..\src\Runtime\CloudFlare.Worker.Context\*.fs" Pack="true" PackagePath="fable\Runtime\CloudFlare.Worker.Context" />
   </ItemGroup>
 
-  <!-- Fable sources: Management -->
-  <ItemGroup>
-    <None Include="..\src\Management\CloudFlare.Management.Analytics\*.fs" Pack="true" PackagePath="fable\Management\CloudFlare.Management.Analytics" />
-    <None Include="..\src\Management\CloudFlare.Management.D1\*.fs" Pack="true" PackagePath="fable\Management\CloudFlare.Management.D1" />
-    <None Include="..\src\Management\CloudFlare.Management.DurableObjects\*.fs" Pack="true" PackagePath="fable\Management\CloudFlare.Management.DurableObjects" />
-    <None Include="..\src\Management\CloudFlare.Management.Hyperdrive\*.fs" Pack="true" PackagePath="fable\Management\CloudFlare.Management.Hyperdrive" />
-    <None Include="..\src\Management\CloudFlare.Management.Pages\*.fs" Pack="true" PackagePath="fable\Management\CloudFlare.Management.Pages" />
-    <None Include="..\src\Management\CloudFlare.Management.Queues\*.fs" Pack="true" PackagePath="fable\Management\CloudFlare.Management.Queues" />
-    <None Include="..\src\Management\CloudFlare.Management.R2\*.fs" Pack="true" PackagePath="fable\Management\CloudFlare.Management.R2" />
-    <None Include="..\src\Management\CloudFlare.Management.Vectorize\*.fs" Pack="true" PackagePath="fable\Management\CloudFlare.Management.Vectorize" />
-    <None Include="..\src\Management\CloudFlare.Management.Workers\*.fs" Pack="true" PackagePath="fable\Management\CloudFlare.Management.Workers" />
-  </ItemGroup>
+  <!-- NOTE: Management projects are NOT included in fable/ folder.
+       They use .NET-specific libraries (System.Net.Http, System.Text.Json)
+       that have no Fable equivalents. Management DLLs are still available
+       in lib/netstandard2.0/ for .NET consumers. -->
 
 </Project>
