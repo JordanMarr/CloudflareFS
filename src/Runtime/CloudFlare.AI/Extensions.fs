@@ -14,9 +14,9 @@ module Extensions =
         member _.Bind(m: JS.Promise<'a>, f: 'a -> JS.Promise<'b>) : JS.Promise<'b> =
             thenPromise m f
         member _.Return(x: 'a) : JS.Promise<'a> =
-            JS.Promise.resolve(x)
+            JS.Constructors.Promise.resolve(x)
         member _.ReturnFrom(x: JS.Promise<'a>) : JS.Promise<'a> = x
-        member _.Zero() : JS.Promise<unit> = JS.Promise.resolve()
+        member _.Zero() : JS.Promise<unit> = JS.Constructors.Promise.resolve()
 
     let promise = PromiseBuilder()
 
